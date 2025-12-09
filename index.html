@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DasProjekt — Soluções Criativas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#6ee7b7;
+      --muted: #9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071021 0%, #071723 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{position:fixed;top:18px;left:0;right:0;z-index:50;}
+    .nav{display:flex;align-items:center;justify-content:space-between;background:transparent;padding:10px 14px}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:800;color:#042;box-shadow:0 6px 18px rgba(16,24,40,0.6)}
+    .brand h1{font-size:16px;margin:0}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+    .cta{background:var(--accent);color:#052122;padding:8px 12px;border-radius:8px;font-weight:700}
+
+    /* Hero */
+    .hero{min-height:92vh;display:grid;align-items:center}
+    .hero-inner{display:grid;grid-template-columns:1fr 460px;gap:40px;align-items:center}
+    .eyebrow{color:var(--muted);font-weight:600}
+    .title{font-size:42px;line-height:1.02;margin:10px 0}
+    .lead{color:var(--muted);max-width:56ch}
+    .actions{display:flex;gap:12px;margin-top:20px}
+    .glass-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+
+    /* Feature list */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .feature{padding:14px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{margin:0 0 6px 0}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Portfolio */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .port{position:relative;border-radius:10px;overflow:hidden;min-height:160px;background:#0b1320}
+    .port img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+    .port:hover img{transform:scale(1.06)}
+    .port .tag{position:absolute;left:10px;bottom:10px;background:linear-gradient(90deg,#00000055,#00000077);padding:8px 12px;border-radius:999px;font-weight:700}
+
+    /* About & team */
+    .about{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:center}
+    .progress{display:flex;flex-direction:column;gap:12px}
+    .skill{display:flex;justify-content:space-between;font-weight:700}
+    .bar{height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa)}
+
+    /* Contact */
+    form{display:grid;gap:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:8px;color:inherit}
+    input::placeholder,textarea::placeholder{color:var(--muted)}
+    button[type=submit]{background:var(--accent);border:none;padding:12px;border-radius:10px;font-weight:800}
+
+    footer{padding:30px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media(max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      nav ul{display:none}
+      .hero{padding-top:34px}
+      .brand h1{font-size:14px}
+      .title{font-size:28px}
+      .portfolio-grid{grid-template-columns:1fr}
+    }
+
+    /* section spacing */
+    section{padding:80px 0}
+    .section-sub{color:var(--muted);font-weight:700}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">DP</div>
+        <div>
+          <h1>DasProjekt</h1>
+          <div style="font-size:12px;color:var(--muted)">Estratégia · Design · Código</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#contato">Solicitar Proposta</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">Agência & Studio</div>
+          <h2 class="title">Construímos produtos digitais memoráveis<br><span style="color:var(--accent)">para marcas que querem ir além</span></h2>
+          <p class="lead">Somos a DasProjekt — um time pequeno e ágil que mistura estratégia, design e desenvolvimento para transformar ideias em experiências digitais que encantam usuários e geram resultado.</p>
+
+          <div class="actions">
+            <a class="cta" href="#portfolio">Ver Portfólio</a>
+            <a style="padding:8px 12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#servicos">Nossos Serviços</a>
+          </div>
+
+          <div class="features" style="margin-top:26px">
+            <div class="feature">
+              <h4>Design de Produto</h4>
+              <p>UX/UI pensados para conversão e retenção.</p>
+            </div>
+            <div class="feature">
+              <h4>Desenvolvimento</h4>
+              <p>Front-end moderno e back-ends escaláveis.</p>
+            </div>
+            <div class="feature">
+              <h4>Consultoria</h4>
+              <p>Estratégia de produto e roadmaps de crescimento.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="glass-card">
+          <h3 style="margin:0 0 8px 0">Resumo rápido</h3>
+          <p style="margin:0;color:var(--muted)">Projetos entregues com foco em resultados, prazos claros e comunicação direta. Abaixo algumas métricas</p>
+
+          <div style="margin-top:14px">
+            <div style="display:flex;justify-content:space-between"><strong>Clientes Ativos</strong><span>12</span></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px"><strong>Projetos/ano</strong><span>18</span></div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px"><strong>Satisfação</strong><span>4.9/5</span></div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:8px">
+            <button style="flex:1;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px">Case Study</button>
+            <button style="flex:1" class="cta">Contato</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div style="display:flex;justify-content:space-between;align-items:end"><div>
+          <div class="section-sub">O que fazemos</div>
+          <h2 style="margin-top:6px">Serviços com abordagem prática</h2>
+        </div>
+        <div style="color:var(--muted);font-weight:700">Ideias → Prova → Escala</div>
+      </div>
+
+      <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <div class="glass-card">
+          <h3>Design de Experiência</h3>
+          <p style="color:var(--muted)">Pesquisas, protótipos e testes — entregamos interfaces que são fáceis de usar e impactam indicadores.</p>
+        </div>
+        <div class="glass-card">
+          <h3>Engenharia</h3>
+          <p style="color:var(--muted)">SPAs, PWAs, microsserviços e integrações — foco em performance e manutenção.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:22px">
+        <div class="portfolio-grid" id="portfolio">
+
+          <div class="port"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 1"><div class="tag">Dashboards</div></div>
+          <div class="port"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 2"><div class="tag">E-commerce</div></div>
+          <div class="port"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 3"><div class="tag">Branding</div></div>
+          <div class="port"><img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 4"><div class="tag">Landing Pages</div></div>
+          <div class="port"><img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 5"><div class="tag">Apps</div></div>
+          <div class="port"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Projeto 6"><div class="tag">Campanhas</div></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:start">
+        <div>
+          <div class="section-sub">Quem somos</div>
+          <h2>Uma equipe pequena com ambição grande</h2>
+          <p style="color:var(--muted)">Na DasProjekt acreditamos que bons produtos nascem da colaboração entre estratégia, design e engenharia. Trabalhamos com startups e marcas estabelecidas para resolver problemas reais e mensurar impacto.</p>
+
+          <div style="margin-top:18px" class="progress">
+            <div class="skill"><span>Design</span><span>92%</span></div>
+            <div class="bar"><i style="width:92%"></i></div>
+            <div class="skill"><span>Engenharia</span><span>88%</span></div>
+            <div class="bar"><i style="width:88%"></i></div>
+            <div class="skill"><span>Estratégia</span><span>85%</span></div>
+            <div class="bar"><i style="width:85%"></i></div>
+          </div>
+        </div>
+
+        <aside class="glass-card">
+          <h3>Nossos valores</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Clareza</li>
+            <li>Entrega</li>
+            <li>Aprendizado contínuo</li>
+            <li>Foco em métricas</li>
+          </ul>
+
+          <div style="margin-top:14px">
+            <h4 style="margin:0">Time</h4>
+            <div style="display:flex;gap:10px;margin-top:12px">
+              <div style="text-align:center">
+                <div style="width:48px;height:48px;border-radius:10px;background:#07121a;margin:0 auto;display:flex;align-items:center;justify-content:center">AH</div>
+                <div style="font-weight:700;margin-top:6px">Ana</div>
+                <div style="font-size:12px;color:var(--muted)">Design</div>
+              </div>
+              <div style="text-align:center">
+                <div style="width:48px;height:48px;border-radius:10px;background:#07121a;margin:0 auto;display:flex;align-items:center;justify-content:center">MG</div>
+                <div style="font-weight:700;margin-top:6px">Mateus</div>
+                <div style="font-size:12px;color:var(--muted)">Engenharia</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div style="display:grid;grid-template-columns:1fr 420px;gap:26px">
+        <div>
+          <div class="section-sub">Fale com a gente</div>
+          <h2>Vamos transformar sua ideia em um projeto</h2>
+          <p style="color:var(--muted)">Preencha o formulário — nós respondemos em até 2 dias úteis.</p>
+
+          <form onsubmit="event.preventDefault(); alert('Obrigado! Sua mensagem foi enviada (demo).');">
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu e‑mail" required>
+            <input type="text" placeholder="Empresa / Produto">
+            <textarea rows="6" placeholder="Conte brevemente sobre o projeto" required></textarea>
+            <div style="display:flex;gap:10px">
+              <button type="submit">Enviar</button>
+              <a href="#" style="align-self:center;color:var(--muted);font-weight:700">Ou envie um e‑mail</a>
+            </div>
+          </form>
+        </div>
+
+        <aside class="glass-card">
+          <h3>Informações</h3>
+          <p style="color:var(--muted);margin:6px 0">E-mail: contato@dasprojekt.com</p>
+          <p style="color:var(--muted);margin:6px 0">Local: São Paulo, BR</p>
+
+          <div style="margin-top:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;">
+            <strong>Orçamento</strong>
+            <p style="margin:6px 0;color:var(--muted)">Oferecemos pacotes sob medida — de MVPs rápidos a produtos maduros.</p>
+            <a class="cta" href="#contato">Peça uma proposta</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="logo" style="width:38px;height:38px">DP</div>
+          <div style="font-weight:700">DasProjekt</div>
+        </div>
+        <div style="color:var(--muted)">© <span id="ano"></span> DasProjekt — Todos os direitos reservados</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small helpers
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle (simple)
+    // Smooth interactive touches
+    const ports = document.querySelectorAll('.port');
+    ports.forEach(p => p.addEventListener('click', () => {
+      // demo lightbox - open image in new tab
+      const img = p.querySelector('img');
+      if(img) window.open(img.src, '_blank');
+    }));
+
+    // Intersection fade in
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.style.opacity=1;
+      });
+    },{threshold:0.1});
+    document.querySelectorAll('section').forEach(s=>{s.style.opacity=0;s.style.transition='opacity 800ms ease';obs.observe(s)});
+  </script>
+</body>
+
+</html>
