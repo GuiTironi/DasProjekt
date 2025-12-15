@@ -1,0 +1,173 @@
+/* ===== CONFIGURAÇÕES GERAIS ===== */
+body {
+  background: #0b0e14;
+  color: #e6e6e6;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== HERO COM CAROUSEL ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Carousel ocupa toda a tela */
+.hero .carousel,
+.hero .carousel-inner,
+.hero .carousel-item {
+  height: 100vh;
+}
+
+/* Imagens do carousel */
+.hero .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay escuro */
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  max-width: 750px;
+  margin: 20px auto 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Botão principal */
+.btn-tech {
+  background-color: #0d6efd;
+  border: none;
+  padding: 14px 36px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.btn-tech:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+}
+
+/* Indicadores */
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/* Setas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* ===== SEÇÕES ===== */
+.section {
+  padding: 90px 0;
+}
+
+.bg-tech {
+  background: #11141c;
+}
+
+.box-info,
+.card-tech {
+  background: #161a25;
+  padding: 35px;
+  border-radius: 15px;
+  height: 100%;
+  transition: 0.3s;
+}
+
+.box-info:hover,
+.card-tech:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(13, 110, 253, 0.35);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 65px;
+  height: 65px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+  transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float i {
+  line-height: 0;
+}
