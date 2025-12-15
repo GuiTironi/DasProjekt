@@ -5,6 +5,68 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
+body p{
+    font-size: 20px;
+}
+
+/* ===== NAVBAR ===== */
+  
+/* ===== DROPDOWN NAVBAR COM TRANSIÇÃO ===== */
+
+.navbar .dropdown {
+  position: relative;
+}
+
+/* Estado inicial (fechado) */
+.dropdown-menu {
+  display: block; /* necessário para animar */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(15px);
+  transition: 
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s;
+
+  margin-top: 12px;
+  border-radius: 14px;
+  padding: 12px 0;
+  background: #11141c;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Hover */
+.navbar .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+/* Itens */
+.dropdown-item {
+  color: #e6e6e6;
+  padding: 12px 25px;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #585858;
+  color: #fff;
+}
+
+/* Remove seta padrão */
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+
+
 .navbar {
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
@@ -170,4 +232,8 @@ body {
 }
 .whatsapp-float i {
   line-height: 0;
+}
+.sobre p{
+    text-align: justify;
+    font-size: 20px;
 }
