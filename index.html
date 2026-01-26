@@ -1,300 +1,322 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passat Variant 1.8 Turbo</title>
+    <meta charset="UTF-8">
+    <title>DasProjekt | Engenharia & Automação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-body {
-  background: #0b0b0b;
-  color: #fff;
-  scroll-behavior: smooth;
-}
+    <!-- AOS Animações -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-/* ================= HEADER ================= */
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(12px);
-  z-index: 1000;
-}
-
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #ff2e2e;
-}
-
-.menu {
-  display: flex;
-  gap: 30px;
-}
-
-.menu a {
-  transition: 0.3s;
-}
-
-.menu a:hover {
-  color: #ff2e2e;
-}
-
-/* MOBILE MENU */
-.menu-btn {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 70%;
-  height: 100vh;
-  background: #0e0e0e;
-  padding: 60px 30px;
-  transition: 0.4s;
-}
-
-.mobile-menu a {
-  display: block;
-  margin-bottom: 30px;
-  font-size: 1.2rem;
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-/* ================= HERO ================= */
-.hero {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: auto;
-  padding: 150px 20px;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-}
-
-.hero span {
-  color: #ff2e2e;
-}
-
-.hero p {
-  max-width: 600px;
-  color: #ddd;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 15px 40px;
-  background: #ff2e2e;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #fff;
-  color: #000;
-}
-
-/* ================= SECTIONS ================= */
-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 20px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-}
-
-.section-title span {
-  color: #ff2e2e;
-}
-
-/* ================= INFO ================= */
-.info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 30px;
-}
-
-.box {
-  background: #151515;
-  padding: 30px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-
-.box:hover {
-  transform: translateY(-10px);
-}
-
-/* ================= GALERIA ================= */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 20px;
-  transition: 0.4s;
-  cursor: pointer;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* ================= FOOTER ================= */
-footer {
-  background: #050505;
-  text-align: center;
-  padding: 40px;
-  color: #777;
-}
-
-footer span {
-  color: #ff2e2e;
-}
-
-/* ================= RESPONSIVO ================= */
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-}
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
+
 
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">Passat Variant</div>
-    <div class="menu">
-      <a href="#sobre">Sobre</a>
-      <a href="#specs">Specs</a>
-      <a href="#galeria">Galeria</a>
-    </div>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  </div>
-</header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">DasProjekt</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#sobre" onclick="toggleMenu()">Sobre</a>
-  <a href="#specs" onclick="toggleMenu()">Specs</a>
-  <a href="#galeria" onclick="toggleMenu()">Galeria</a>
-</div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
 
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-driving-through-the-city-1845/1080p.mp4" type="video/mp4">
-  </video>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#engenharia">Engenharia</a>
 
-  <div class="hero-content">
-    <h1>Passat <span>Variant</span><br>1.8 Turbo</h1>
-    <p>Elegância alemã com espírito esportivo. Um clássico que envelheceu como vinho.</p>
-    <a href="#galeria" class="btn">Ver Galeria</a>
-  </div>
-</section>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#escaneamento">Engenharia Reversa</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Inspeção Dimensional</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Digitalização de Peças</a></li>
+                        </ul>
+                    </li>
 
-<section id="sobre">
-  <h2 class="section-title">Sobre o <span>Projeto</span></h2>
-  <p style="text-align:center; color:#ccc; max-width:800px; margin:auto;">
-    Este site representa um projeto automotivo focado em visual premium, performance estética
-    e respeito à originalidade do Passat Variant 1.8 Turbo.
-  </p>
-</section>
 
-<section id="specs">
-  <h2 class="section-title">Especificações</h2>
-  <div class="info">
-    <div class="box">Motor 1.8 Turbo 20v</div>
-    <div class="box">Tração Dianteira</div>
-    <div class="box">Design Alemão Clássico</div>
-  </div>
-</section>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#prototipagem">Prototipagem</a>
 
-<section id="galeria">
-  <h2 class="section-title">Galeria</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1605559424843-9a1f9a1b1c1b">
-    <img src="https://images.unsplash.com/photo-1601924582975-7a4a1a36e4cb">
-    <img src="https://images.unsplash.com/photo-1511910849309-0c9b0c4d2f99">
-    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-  </div>
-</section>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#escaneamento">Engenharia Reversa</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Inspeção Dimensional</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Digitalização de Peças</a></li>
+                        </ul>
+                    </li>
 
-<footer>
-  © 2026 • Projeto <span>Passat Variant</span> 🚗🔥
-</footer>
 
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("active");
-}
-</script>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#escaneamento">Escaneamento 3D</a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#escaneamento">Scanner de luz branca</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Laser</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#fabricacao">Fabricação</a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#escaneamento">Engenharia Reversa</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Inspeção Dimensional</a></li>
+                            <li><a class="dropdown-item" href="#escaneamento">Digitalização de Peças</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item"><a class="nav-link" href="#consultoria">Consultoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- INÍCIO --><!-- INÍCIO COM CAROUSEL -->
+    <section id="inicio" class="hero">
+
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="fotos/teste.png" alt="Engenharia e Projetos">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="fotos/teste.png" alt="Prototipagem">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="fotos/teste.png" alt="Fabricação e Usinagem">
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+
+        </div>
+
+        <!-- Overlay escuro -->
+        <div class="overlay"></div>
+
+        <!-- Conteúdo sobre o carousel -->
+        <div class="container hero-content" data-aos="fade-up">
+            <h1>Engenharia de precisão para soluções reais</h1>
+            <p>
+                Projetos técnicos, prototipagem, escaneamento 3D e fabricação avançada.
+                Tecnologia aplicada do conceito à produção.
+            </p>
+            <a href="#contato" class="btn btn-tech mt-3">Solicitar orçamento</a>
+        </div>
+
+    </section>
+
+    <section class="sobre" id="sobre">
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2>Sobre a DasProjekt</h2>
+                    <p>
+                        A DasProjekt é uma empresa especializada em engenharia e automação,
+                        dedicada a fornecer soluções técnicas inovadoras para diversos setores
+                        industriais. Com uma equipe experiente e tecnologia de ponta, oferecemos
+                        serviços que abrangem desde o desenvolvimento de projetos até a fabricação
+                        de peças sob medida.
+                    </p>
+                    <p>
+                        Nosso compromisso é entregar qualidade, precisão e eficiência em cada
+                        etapa do processo, garantindo a satisfação dos nossos clientes e o sucesso
+                        dos seus projetos.
+                        Somos diferentes porquê gostamos de parcerias realmente simbióticas, estamos juntos de nossos
+                        clientes antes da compra de qualquer serviço ou equipamento nosso, analisando e consultando a
+                        melhor opção dentro das necessidades individuais e demandas específicas de cada um.
+
+                        Obviamente isso tem um preço, não é possível expandir muito o número de clientes, limitando
+                        assim nosso crescimento.
+
+                        Não queremos ser a maior empresa do ramo, mas almejamos sim, ser a melhor, a que se torne
+                        referência em atendimento de qualidade no nosso mercado.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="fotos/teste.png" class="img-fluid rounded" alt="Sobre a DasProjekt">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ENGENHARIA E PROJETOS -->
+    <section id="engenharia" class="section bg-tech">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2>Engenharia e Projetos</h2>
+                    <p>
+                        Desenvolvimento completo de projetos técnicos, desde o levantamento
+                        inicial até a documentação final para fabricação.
+                    </p>
+                    <ul>
+                        <li>Modelagem 3D CAD</li>
+                        <li>Análise técnica e funcional</li>
+                        <li>Documentação e detalhamento</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="fotos/teste.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROTOTIPAGEM -->
+    <section id="prototipagem" class="section">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2>Prototipagem Rápida</h2>
+                    <p>
+                        Produção de protótipos funcionais para testes, validações e melhorias de
+                        projeto, reduzindo custos e tempo de desenvolvimento.
+                    </p>
+                    <ul>
+                        <li>Testes de conceito</li>
+                        <li>Validação dimensional</li>
+                        <li>Ajustes antes da produção final</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="fotos/teste.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESCANEAMENTO 3D -->
+    <section id="escaneamento" class="section bg-tech">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2>Escaneamento 3D</h2>
+                    <p>
+                        Digitalização precisa de peças e superfícies para engenharia reversa,
+                        inspeção dimensional e customizações técnicas.
+                    </p>
+                    <ul>
+                        <li>Engenharia reversa</li>
+                        <li>Comparação CAD x peça real</li>
+                        <li>Reprodução de componentes</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="fotos/teste.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FABRICAÇÃO -->
+    <section id="fabricacao" class="section">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2>Fabricação e Usinagem</h2>
+                    <p>
+                        Fabricação de peças técnicas com alto padrão de qualidade, utilizando
+                        processos CNC e controle dimensional rigoroso.
+                    </p>
+                    <ul>
+                        <li>Peças sob medida</li>
+                        <li>Produção unitária ou em série</li>
+                        <li>Alto nível de acabamento</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="fotos/teste.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTORIA -->
+    <section id="consultoria" class="section bg-tech">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2>Consultoria Técnica</h2>
+                    <p>
+                        Suporte especializado para otimização de projetos, processos produtivos
+                        e soluções técnicas personalizadas.
+                    </p>
+                    <ul>
+                        <li>Análise de viabilidade</li>
+                        <li>Otimização de processos</li>
+                        <li>Apoio técnico especializado</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="fotos/teste.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section text-center">
+        <div class="container">
+            <h2 data-aos="fade-up">Entre em contato</h2>
+            <p data-aos="fade-up" data-aos-delay="100">
+                Fale conosco e leve seu projeto para o próximo nível.
+            </p>
+
+            <a href="https://wa.me/5511947168686" target="_blank" class="btn btn-success btn-lg">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+    <a href="https://wa.me/5511947168686" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 DasProjekt – Engenharia & Automação</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 1000 });</script>
 
 </body>
+
 </html>
